@@ -2,11 +2,11 @@
    "kind":"Service",
    "apiVersion":"v1",
    "metadata":{  
-      "name":"lugaresdb",
+      "name":"homestead",
       "namespace":"panchito",
       "creationTimestamp":null,
       "labels":{  
-         "service":"lugaresdb"
+         "service":"homestead"
       }
    },
    "spec":{  
@@ -19,7 +19,7 @@
          }
       ],
       "selector":{  
-         "service":"lugaresdb"
+         "service":"homestead"
       }
    },
    "status":{  

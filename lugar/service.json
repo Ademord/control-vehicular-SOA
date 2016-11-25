@@ -2,11 +2,11 @@
    "kind":"Service",
    "apiVersion":"v1",
    "metadata":{  
-      "name":"lugaresbackend",
+      "name":"lugares",
       "namespace":"panchito",
       "creationTimestamp":null,
       "labels":{  
-         "service":"lugaresbackend"
+         "service":"lugares"
       }
    },
    "spec":{  
@@ -19,7 +19,7 @@
          }
       ],
       "selector":{  
-         "service":"lugaresbackend"
+         "service":"lugares"
       },
       "type":"LoadBalancer"
    },

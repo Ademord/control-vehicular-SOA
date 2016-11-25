@@ -2,7 +2,7 @@
    "kind":"Deployment",
    "apiVersion":"extensions/v1beta1",
    "metadata":{  
-      "name":"lugaresdb",
+      "name":"homestead",
       "namespace":"panchito",
       "creationTimestamp":null
    },
@@ -12,14 +12,14 @@
          "metadata":{  
             "creationTimestamp":null,
             "labels":{  
-               "service":"lugaresdb"
+               "service":"homestead"
             }
          },
          "spec":{  
             "containers":[  
                {  
-                  "name":"lugaresdb",
-                  "image":"ademord/homestead:v2",
+                  "name":"homestead",
+                  "image":"ademord/homestead:v4",
                   "ports":[  
                      {  
                         "containerPort":5432,

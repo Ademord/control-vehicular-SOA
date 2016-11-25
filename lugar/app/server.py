@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request
-from lugar import Lugar as lugar
+from app import Lugar as lugar
 app = Flask(__name__)
 
 @app.route('/lugares', methods=['GET'])
