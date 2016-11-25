@@ -1,0 +1,30 @@
+{  
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{  
+      "name":"lugaresdb",
+      "namespace":"panchito",
+      "creationTimestamp":null,
+      "labels":{  
+         "service":"lugaresdb"
+      }
+   },
+   "spec":{  
+      "ports":[  
+         {  
+            "name":"5432",
+            "protocol":"TCP",
+            "port":5432,
+            "targetPort":5432
+         }
+      ],
+      "selector":{  
+         "service":"lugaresdb"
+      }
+   },
+   "status":{  
+      "loadBalancer":{  
+
+      }
+   }
+}
