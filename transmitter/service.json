@@ -1,0 +1,31 @@
+{  
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{  
+      "name":"transmitter",
+      "namespace":"panchito",
+      "creationTimestamp":null,
+      "labels":{  
+         "service":"transmitter"
+      }
+   },
+   "spec":{  
+      "ports":[  
+         {  
+            "name":"5000",
+            "protocol":"TCP",
+            "port":80,
+            "targetPort":5000
+         }
+      ],
+      "selector":{  
+         "service":"transmitter"
+      },
+      "type":"LoadBalancer"
+   },
+   "status":{  
+      "loadBalancer":{  
+
+      }
+   }
+}
