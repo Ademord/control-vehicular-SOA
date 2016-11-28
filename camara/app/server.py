@@ -1,45 +1,45 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request
-from app import Lugar
+from app import Camara
 app = Flask(__name__)
 
-@app.route('/lugares', methods=['GET'])
+@app.route('/camaras', methods=['GET'])
 def index():
-    temp = Lugar.getall()
+    temp = Camara.getall()
     resultado = {}
-    resultado['lugares'] = temp
+    resultado['camaras'] = temp
     return jsonify(resultado)
 
-@app.route('/lugares/<int:id>', methods=['GET'])
+@app.route('/camaras/<int:id>', methods=['GET'])
 def show(id):
-    temp = Lugar.get(id)
+    temp = Camara.get(id)
     if not temp: abort(404)
     resultado = {}
-    resultado['lugar'] = temp
+    resultado['camara'] = temp
     return jsonify(resultado)
 
-@app.route('/lugares', methods=['POST'])
+@app.route('/camaras', methods=['POST'])
 def store():
     data = request.get_json()
-    if not request.json or not Lugar.valid(data):
+    if not request.json or not Camara.valid(data):
         abort(400)
-    result = Lugar.add(data)
+    result = Camara.add(data)
     return jsonify({'result': result}), 201
 
-@app.route('/lugares/<int:id>', methods=['PUT'])
+@app.route('/camaras/<int:id>', methods=['PUT'])
 def update(id):
-    temp = Lugar.get(id)
+    temp = Camara.get(id)
     data = request.get_json()
-    if not temp or not data or not Lugar.valid(data):
+    if not temp or not data or not Camara.valid(data):
         abort(404)
-    result = Lugar.update(id, data)
+    result = Camara.update(id, data)
     return jsonify({'result': result }), 201
 
-@app.route('/lugares/<int:id>', methods=['DELETE'])
+@app.route('/camaras/<int:id>', methods=['DELETE'])
 def destroy(id):
-    temp = Lugar.get(id)
+    temp = Camara.get(id)
     if not temp: abort(404)
-    result = Lugar.remove(id)
+    result = Camara.remove(id)
     return jsonify({'result': result }), 201
 
 @app.errorhandler(404)
@@ -48,8 +48,8 @@ def not_found(error):
 
 @app.before_first_request
 def _run_on_start():
-    Lugar.connect()
+    Camara.connect()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=55550, debug=True)
+    app.run(host='0.0.0.0', port=55551, debug=True)
     # app.run(port=55555, debug=True)

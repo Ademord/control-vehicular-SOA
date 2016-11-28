@@ -1,0 +1,3 @@
+flask
+orator
+psycopg2

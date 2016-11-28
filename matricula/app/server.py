@@ -1,45 +1,45 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request
-from app import Lugar
+from app import Matricula
 app = Flask(__name__)
 
-@app.route('/lugares', methods=['GET'])
+@app.route('/matriculas', methods=['GET'])
 def index():
-    temp = Lugar.getall()
+    temp = Matricula.getall()
     resultado = {}
-    resultado['lugares'] = temp
+    resultado['matriculas'] = temp
     return jsonify(resultado)
 
-@app.route('/lugares/<int:id>', methods=['GET'])
+@app.route('/matriculas/<int:id>', methods=['GET'])
 def show(id):
-    temp = Lugar.get(id)
+    temp = Matricula.get(id)
     if not temp: abort(404)
     resultado = {}
-    resultado['lugar'] = temp
+    resultado['matricula'] = temp
     return jsonify(resultado)
 
-@app.route('/lugares', methods=['POST'])
+@app.route('/matriculas', methods=['POST'])
 def store():
     data = request.get_json()
-    if not request.json or not Lugar.valid(data):
+    if not request.json or not Matricula.valid(data):
         abort(400)
-    result = Lugar.add(data)
+    result = Matricula.add(data)
     return jsonify({'result': result}), 201
 
-@app.route('/lugares/<int:id>', methods=['PUT'])
+@app.route('/matriculas/<int:id>', methods=['PUT'])
 def update(id):
-    temp = Lugar.get(id)
+    temp = Matricula.get(id)
     data = request.get_json()
-    if not temp or not data or not Lugar.valid(data):
+    if not temp or not data or not Matricula.valid(data):
         abort(404)
-    result = Lugar.update(id, data)
+    result = Matricula.update(id, data)
     return jsonify({'result': result }), 201
 
-@app.route('/lugares/<int:id>', methods=['DELETE'])
+@app.route('/matriculas/<int:id>', methods=['DELETE'])
 def destroy(id):
-    temp = Lugar.get(id)
+    temp = Matricula.get(id)
     if not temp: abort(404)
-    result = Lugar.remove(id)
+    result = Matricula.remove(id)
     return jsonify({'result': result }), 201
 
 @app.errorhandler(404)
@@ -48,8 +48,8 @@ def not_found(error):
 
 @app.before_first_request
 def _run_on_start():
-    Lugar.connect()
+    Matricula.connect()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=55550, debug=True)
+    app.run(host='0.0.0.0', port=55555, debug=True)
     # app.run(port=55555, debug=True)

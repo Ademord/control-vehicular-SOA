@@ -2,27 +2,27 @@
    "kind":"Deployment",
    "apiVersion":"extensions/v1beta1",
    "metadata":{  
-      "name":"lugares",
+      "name":"matriculas",
       "namespace":"panchito",
       "creationTimestamp":null
    },
    "spec":{  
-      "replicas":3,
+      "replicas":2,
       "template":{  
          "metadata":{  
             "creationTimestamp":null,
             "labels":{  
-               "service":"lugares"
+               "service":"matriculas"
             }
          },
          "spec":{  
             "containers":[  
                {  
-                  "name":"lugares",
-                  "image":"ademord/lugar:v6",
+                  "name":"matriculas",
+                  "image":"ademord/matricula:v3",
                   "ports":[  
                      {  
-                        "containerPort":55550,
+                        "containerPort":55555,
                         "protocol":"TCP"
                      }
                   ],

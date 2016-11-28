@@ -2,24 +2,24 @@
    "kind":"Service",
    "apiVersion":"v1",
    "metadata":{  
-      "name":"lugares",
+      "name":"camaras",
       "namespace":"panchito",
       "creationTimestamp":null,
       "labels":{  
-         "service":"lugares"
+         "service":"camaras"
       }
    },
    "spec":{  
       "ports":[  
          {  
-            "name":"55550",
+            "name":"55555",
             "protocol":"TCP",
             "port":80,
-            "targetPort":55550
+            "targetPort":55551
          }
       ],
       "selector":{  
-         "service":"lugares"
+         "service":"camaras"
       },
       "type":"LoadBalancer"
    },
