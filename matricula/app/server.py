@@ -5,18 +5,15 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    temp = Matricula.getall()
-    resultado = {}
-    resultado['matriculas'] = temp
-    return jsonify(resultado)
+    return jsonify(Matricula.getall())
 
 @app.route('/<int:id>', methods=['GET'])
 def show(id):
-    temp = Matricula.get(id)
-    if not temp: abort(404)
-    resultado = {}
-    resultado['matricula'] = temp
-    return jsonify(resultado)
+     return jsonify(Matricula.get(id))
+
+@app.route('/search/<string:q>', methods=['GET'])
+def search(q):
+    return jsonify(Matricula.buscar(q))
 
 @app.route('/', methods=['POST'])
 def store():

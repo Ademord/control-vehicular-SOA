@@ -5,20 +5,17 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    temp = Lugar.getall()
-    resultado = {}
-    resultado['lugares'] = temp
-    return jsonify(resultado)
+    return jsonify(Lugar.getall())
 
 @app.route('/<int:id>', methods=['GET'])
 def show(id):
-    temp = Lugar.get(id)
-    if not temp: abort(404)
-    resultado = {}
-    resultado['lugar'] = temp
-    return jsonify(resultado)
+     return jsonify(Lugar.get(id))
 
-@app.route('', methods=['POST'])
+@app.route('/search/<string:q>', methods=['GET'])
+def search(q):
+    return jsonify(Lugar.buscar(q))
+
+@app.route('/', methods=['POST'])
 def store():
     data = request.get_json()
     if not request.json or not Lugar.valid(data):

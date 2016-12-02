@@ -3,44 +3,38 @@ from flask import Flask, jsonify, abort, make_response, request
 from app import Camara
 app = Flask(__name__)
 
-@app.route('/camaras', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
-    temp = Camara.getall()
-    resultado = {}
-    resultado['camaras'] = temp
-    return jsonify(resultado)
+    return jsonify(Camara.getall())
 
-@app.route('/camaras/<int:id>', methods=['GET'])
+@app.route('/<int:id>', methods=['GET'])
 def show(id):
-    temp = Camara.get(id)
-    if not temp: abort(404)
-    resultado = {}
-    resultado['camara'] = temp
-    return jsonify(resultado)
+    return jsonify(Camara.get(id))
 
-@app.route('/camaras', methods=['POST'])
+@app.route('/search/<string:q>', methods=['GET'])
+def search(q):
+    return jsonify(Camara.buscar(q))
+
+@app.route('/', methods=['POST'])
 def store():
     data = request.get_json()
     if not request.json or not Camara.valid(data):
         abort(400)
-    result = Camara.add(data)
-    return jsonify({'result': result}), 201
+    return jsonify(Camara.add(data)), 201
 
-@app.route('/camaras/<int:id>', methods=['PUT'])
+@app.route('/<int:id>', methods=['PUT'])
 def update(id):
     temp = Camara.get(id)
     data = request.get_json()
     if not temp or not data or not Camara.valid(data):
         abort(404)
-    result = Camara.update(id, data)
-    return jsonify({'result': result }), 201
+    return jsonify(Camara.update(id, data)), 201
 
-@app.route('/camaras/<int:id>', methods=['DELETE'])
+@app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):
     temp = Camara.get(id)
     if not temp: abort(404)
-    result = Camara.remove(id)
-    return jsonify({'result': result }), 201
+    return jsonify(Camara.remove(id)), 201
 
 @app.errorhandler(404)
 def not_found(error):

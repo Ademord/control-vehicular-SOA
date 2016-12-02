@@ -12,12 +12,17 @@ from datetime import datetime
 app = Flask(__name__)
 
 config ={
-    "ip": "123.123.123"    
+    "ip": "123.123.111"    
 }
 
 @app.route('/', methods=['GET'])
 def status():
     return jsonify(config)
+@app.route('/<string:ip>', methods=['POST'])
+def set_ip(ip):
+    config['ip'] = ip
+    return jsonify(config)
+
 
 def send(data):
     data ['timestamp'] = str(datetime.now())

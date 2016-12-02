@@ -1,5 +1,7 @@
 from orator import Model
 from database import db
+from flask import abort
+
 #orator.orm.collection.Collection object at 0x000001AA82700978
 class Matricula(Model):
 
@@ -8,20 +10,28 @@ class Matricula(Model):
     __table__ = 'matriculas'
     
     def getall(): 
-        return Matricula.all().serialize()
+        try:
+            return Matricula.all().serialize()
+        except:
+            return abort(404)
 
     def get(id):
-        matricula = Matricula.find(id)
         try:
-            return matricula.serialize()
+            return Matricula.find(id).serialize()
         except:
-            return matricula
+            return abort(404)
+
+    def buscar(param):
+        try:
+            return Matricula.where('numero', 'like', '%{}%'.format(param)).get().serialize();
+        except:
+            return abort(404)
 
     def add(temp):
         matricula = Matricula()
         try:
             matricula.numero = temp['numero']
-            matricula.miembro_id = temp['miembro_id']
+            matricula.propietario_id = temp['propietario_id']
             matricula.save() #salta id cuando no puede agregar; falta validar requests
             return True
         except:
@@ -39,7 +49,7 @@ class Matricula(Model):
         matricula = Matricula.find(id)
         try:
             matricula.numero = temp['numero']
-            matricula.miembro_id = temp['miembro_id']
+            matricula.propietario_id = temp['propietario_id']
             matricula.save()
             return True
         except:

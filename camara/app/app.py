@@ -1,47 +1,62 @@
 from orator import Model
 from database import db
+from flask import abort
 #orator.orm.collection.Collection object at 0x000001AA82700978
 class Camara(Model):
+
+    # def __init__(self):
+    #     self.ip = ""
+    #     self.lugar_id = ""
+    #     self.estado = False
+    #     self.recolector = ""
 
     def connect():
         Model.set_connection_resolver(db)
     __table__ = 'camaras'
     
     def getall(): 
-        return Camara.all().serialize()
+        try:
+            return Camara.all().serialize()
+        except:
+            return abort(404)
 
     def get(id):
-        camara = Camara.find(id)
         try:
-            return camara.serialize()
+            return Camara.find(id).serialize()
         except:
-            return camara
+            return abort(404)
+
+    def buscar(param):
+        try:
+            return Camara.where('ip', 'like', '%{}%'.format(param)).get().serialize();
+        except:
+            return abort(404)
 
     def add(temp):
         camara = Camara()
-        try:
-            camara.nombre = temp['ip']
-            camara.lugar_id = temp['lugar_id']
-            camara.save() #salta id cuando no puede agregar; falta validar requests
-            return True
-        except:
-            return "No se pudo agregar elemento."
+        camara.ip = temp['ip']
+        camara.lugar_id = temp['lugar_id']
+        camara.estado = temp['estado']
+        camara.recolector = temp['recolector']
+        camara.save() #salta id cuando no puede agregar; falta validar requests
+        return 200
 
     def remove(id):
-        camara = Camara.find(id)
         try:
-            camara.delete()
-            return True
+            Camara.find(id).delete()
+            return 200
         except:
             return "No se pudo eliminar elemento."
 
     def update(id, temp):
         camara = Camara.find(id)
         try:
-            camara.nombre = temp['ip']
+            camara.ip = temp['ip']
             camara.lugar_id = temp['lugar_id']
+            camara.estado = temp['estado']
+            camara.recolector = temp['recolector']
             camara.save()
-            return True
+            return 200
         except:
             return "No se pudo actualizar elemento."
 

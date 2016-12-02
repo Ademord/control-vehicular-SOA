@@ -7,7 +7,7 @@
       "creationTimestamp":null
    },
    "spec":{  
-      "replicas":2,
+      "replicas":1,
       "template":{  
          "metadata":{  
             "creationTimestamp":null,
@@ -19,7 +19,7 @@
             "containers":[  
                {  
                   "name":"propietarios",
-                  "image":"ademord/propietario:v1",
+                  "image":"ademord/propietario:latest",
                   "ports":[  
                      {  
                         "containerPort":55555,

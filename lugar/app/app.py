@@ -1,5 +1,7 @@
 from orator import Model
 from database import db
+from flask import abort
+
 #orator.orm.collection.Collection object at 0x000001AA82700978
 class Lugar(Model):
 
@@ -8,14 +10,22 @@ class Lugar(Model):
     __table__ = 'lugares'
     
     def getall(): 
-        return Lugar.all().serialize()
+        try:
+            return Lugar.all().serialize()
+        except:
+            return abort(404)
 
     def get(id):
-        lugar = Lugar.find(id)
         try:
-            return lugar.serialize()
+            return Lugar.find(id).serialize()
         except:
-            return lugar
+            return abort(404)
+
+    def buscar(param):
+        try:
+            return Lugar.where('nombre', 'like', '%{}%'.format(param)).get().serialize();
+        except:
+            return abort(404)
 
     def add(temp):
         lugar = Lugar()

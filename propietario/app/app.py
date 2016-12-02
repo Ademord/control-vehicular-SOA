@@ -1,5 +1,6 @@
 from orator import Model
 from database import db
+from flask import abort
 #orator.orm.collection.Collection object at 0x000001AA82700978
 class Propietario(Model):
 
@@ -8,21 +9,29 @@ class Propietario(Model):
     __table__ = 'propietarios'
     
     def getall(): 
-        return Propietario.all().serialize()
+        try:
+            return Propietario.all().serialize()
+        except:
+            return abort(404)
 
     def get(id):
-        propietario = Propietario.find(id)
         try:
-            return propietario.serialize()
+            return Propietario.find(id).serialize()
         except:
-            return propietario
+            return abort(404)
+
+    def buscar(param):
+        try:
+            return Propietario.where('nombres', 'like', '%{}%'.format(param)).get().serialize();
+        except:
+            return abort(404)
 
     def add(temp):
         propietario = Propietario()
         try:
-            propietario.nombres = temp['numero']
+            propietario.nombres = temp['nombres']
             propietario.apellidos = temp['apellidos']
-            propietario.cod_administrativo = temp['cod_administrativo']
+            propietario.codigo = temp['codigo']
             propietario.save() #salta id cuando no puede agregar; falta validar requests
             return True
         except:
@@ -41,7 +50,7 @@ class Propietario(Model):
         try:
             propietario.nombres = temp['nombres']
             propietario.apellidos = temp['apellidos']
-            propietario.cod_administrativo = temp['cod_administrativo']
+            propietario.codigo = temp['codigo']
             propietario.save()
             return True
         except:

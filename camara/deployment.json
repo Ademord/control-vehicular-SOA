@@ -19,7 +19,7 @@
             "containers":[  
                {  
                   "name":"camaras",
-                  "image":"ademord/camara:v5",
+                  "image":"ademord/camara:latest",
                   "ports":[  
                      {  
                         "containerPort":55551,

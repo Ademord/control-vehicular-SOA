@@ -19,7 +19,7 @@
             "containers":[  
                {  
                   "name":"homestead",
-                  "image":"ademord/homestead:v4",
+                  "image":"ademord/homestead:latest",
                   "ports":[  
                      {  
                         "containerPort":5432,

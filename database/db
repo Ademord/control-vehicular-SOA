@@ -1,0 +1,518 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.4
+-- Dumped by pg_dump version 9.5.4
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: camara_backup; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE camara_backup (
+    id integer NOT NULL,
+    ip character varying(255),
+    lugar_id integer NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+ALTER TABLE camara_backup OWNER TO homestead;
+
+--
+-- Name: camara_backup_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE camara_backup_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE camara_backup_id_seq OWNER TO homestead;
+
+--
+-- Name: camara_backup_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE camara_backup_id_seq OWNED BY camara_backup.id;
+
+
+--
+-- Name: camaras; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE camaras (
+    id integer NOT NULL,
+    ip character varying(255),
+    lugar_id integer NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL,
+    recolector character varying(255),
+    estado boolean
+);
+
+
+ALTER TABLE camaras OWNER TO homestead;
+
+--
+-- Name: camara_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE camara_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE camara_id_seq OWNER TO homestead;
+
+--
+-- Name: camara_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE camara_id_seq OWNED BY camaras.id;
+
+
+--
+-- Name: coincidencias; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE coincidencias (
+    id integer NOT NULL,
+    camara character varying(255) NOT NULL,
+    lugar character varying(255) NOT NULL,
+    filename character varying(255) NOT NULL,
+    matricula character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL,
+    mime character varying(255) NOT NULL,
+    propietario character varying(255),
+    mismatch boolean
+);
+
+
+ALTER TABLE coincidencias OWNER TO homestead;
+
+--
+-- Name: lugares; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE lugares (
+    id integer NOT NULL,
+    nombre character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+ALTER TABLE lugares OWNER TO homestead;
+
+--
+-- Name: lugar_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE lugar_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE lugar_id_seq OWNER TO homestead;
+
+--
+-- Name: lugar_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE lugar_id_seq OWNED BY lugares.id;
+
+
+--
+-- Name: matriculas; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE matriculas (
+    id integer NOT NULL,
+    numero character varying(255) NOT NULL,
+    propietario_id integer NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+ALTER TABLE matriculas OWNER TO homestead;
+
+--
+-- Name: propietarios; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE propietarios (
+    id integer NOT NULL,
+    nombres character varying(255) NOT NULL,
+    apellidos character varying(255) NOT NULL,
+    codigo integer NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+ALTER TABLE propietarios OWNER TO homestead;
+
+--
+-- Name: miembro_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE miembro_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE miembro_id_seq OWNER TO homestead;
+
+--
+-- Name: miembro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE miembro_id_seq OWNED BY propietarios.id;
+
+
+--
+-- Name: migrations; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE migrations (
+    migration character varying(255) NOT NULL,
+    batch integer NOT NULL
+);
+
+
+ALTER TABLE migrations OWNER TO homestead;
+
+--
+-- Name: password_resets; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE password_resets (
+    email character varying(255) NOT NULL,
+    token character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone NOT NULL
+);
+
+
+ALTER TABLE password_resets OWNER TO homestead;
+
+--
+-- Name: placa_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE placa_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE placa_id_seq OWNER TO homestead;
+
+--
+-- Name: placa_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE placa_id_seq OWNED BY matriculas.id;
+
+
+--
+-- Name: registro_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE registro_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE registro_id_seq OWNER TO homestead;
+
+--
+-- Name: registro_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE registro_id_seq OWNED BY coincidencias.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: homestead
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    password character varying(60) NOT NULL,
+    remember_token character varying(100),
+    created_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO homestead;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: homestead
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO homestead;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: homestead
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camara_backup ALTER COLUMN id SET DEFAULT nextval('camara_backup_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camaras ALTER COLUMN id SET DEFAULT nextval('camara_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY coincidencias ALTER COLUMN id SET DEFAULT nextval('registro_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY lugares ALTER COLUMN id SET DEFAULT nextval('lugar_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY matriculas ALTER COLUMN id SET DEFAULT nextval('placa_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY propietarios ALTER COLUMN id SET DEFAULT nextval('miembro_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: camara_backup_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camara_backup
+    ADD CONSTRAINT camara_backup_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: camara_ip_unique; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camara_backup
+    ADD CONSTRAINT camara_ip_unique UNIQUE (ip);
+
+
+--
+-- Name: camara_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camaras
+    ADD CONSTRAINT camara_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: lugar_nombre_unique; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY lugares
+    ADD CONSTRAINT lugar_nombre_unique UNIQUE (nombre);
+
+
+--
+-- Name: lugar_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY lugares
+    ADD CONSTRAINT lugar_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: miembro_cod_administrativo_unique; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY propietarios
+    ADD CONSTRAINT miembro_cod_administrativo_unique UNIQUE (codigo);
+
+
+--
+-- Name: miembro_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY propietarios
+    ADD CONSTRAINT miembro_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: placa_numero_unique; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY matriculas
+    ADD CONSTRAINT placa_numero_unique UNIQUE (numero);
+
+
+--
+-- Name: placa_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY matriculas
+    ADD CONSTRAINT placa_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: registro_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY coincidencias
+    ADD CONSTRAINT registro_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_email_unique; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_email_unique UNIQUE (email);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: password_resets_email_index; Type: INDEX; Schema: public; Owner: homestead
+--
+
+CREATE INDEX password_resets_email_index ON password_resets USING btree (email);
+
+
+--
+-- Name: password_resets_token_index; Type: INDEX; Schema: public; Owner: homestead
+--
+
+CREATE INDEX password_resets_token_index ON password_resets USING btree (token);
+
+
+--
+-- Name: camara_lugar_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camara_backup
+    ADD CONSTRAINT camara_lugar_id_foreign FOREIGN KEY (lugar_id) REFERENCES lugares(id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- Name: camara_lugar_id_foreign_2; Type: FK CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY camaras
+    ADD CONSTRAINT camara_lugar_id_foreign_2 FOREIGN KEY (lugar_id) REFERENCES lugares(id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- Name: placa_miembro_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: homestead
+--
+
+ALTER TABLE ONLY matriculas
+    ADD CONSTRAINT placa_miembro_id_foreign FOREIGN KEY (propietario_id) REFERENCES propietarios(id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
