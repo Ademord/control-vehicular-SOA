@@ -5,7 +5,7 @@ class Matricula(Model):
 
     def connect():
         Model.set_connection_resolver(db)
-    __table__ = 'placa'
+    __table__ = 'matriculas'
     
     def getall(): 
         return Matricula.all().serialize()

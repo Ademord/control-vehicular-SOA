@@ -3,14 +3,14 @@ from flask import Flask, jsonify, abort, make_response, request
 from app import Propietario
 app = Flask(__name__)
 
-@app.route('/propietarios', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     temp = Propietario.getall()
     resultado = {}
     resultado['propietarios'] = temp
     return jsonify(resultado)
 
-@app.route('/propietarios/<int:id>', methods=['GET'])
+@app.route('/<int:id>', methods=['GET'])
 def show(id):
     temp = Propietario.get(id)
     if not temp: abort(404)
@@ -18,7 +18,7 @@ def show(id):
     resultado['propietario'] = temp
     return jsonify(resultado)
 
-@app.route('/propietarios', methods=['POST'])
+@app.route('/', methods=['POST'])
 def store():
     data = request.get_json()
     if not request.json or not Propietario.valid(data):
@@ -26,7 +26,7 @@ def store():
     result = Propietario.add(data)
     return jsonify({'result': result}), 201
 
-@app.route('/propietarios/<int:id>', methods=['PUT'])
+@app.route('/<int:id>', methods=['PUT'])
 def update(id):
     temp = Propietario.get(id)
     data = request.get_json()
@@ -35,7 +35,7 @@ def update(id):
     result = Propietario.update(id, data)
     return jsonify({'result': result }), 201
 
-@app.route('/propietarios/<int:id>', methods=['DELETE'])
+@app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):
     temp = Propietario.get(id)
     if not temp: abort(404)

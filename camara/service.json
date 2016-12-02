@@ -12,7 +12,7 @@
    "spec":{  
       "ports":[  
          {  
-            "name":"55555",
+            "name":"55551",
             "protocol":"TCP",
             "port":80,
             "targetPort":55551

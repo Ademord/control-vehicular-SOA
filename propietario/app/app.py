@@ -5,7 +5,7 @@ class Propietario(Model):
 
     def connect():
         Model.set_connection_resolver(db)
-    __table__ = 'miembro'
+    __table__ = 'propietarios'
     
     def getall(): 
         return Propietario.all().serialize()
@@ -48,8 +48,6 @@ class Propietario(Model):
             return "No se pudo actualizar elemento."
 
     def valid(temp):
-        if 'ip' in temp and not isinstance(temp['numero'], str):
+        if 'ip' in temp and not isinstance(temp['nombres'], str):
             return False
-        # if 'lugar_id' in temp and not isinstance(temp['lugar_id'], str):
-        #     return False
         return True

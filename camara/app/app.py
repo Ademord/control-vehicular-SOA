@@ -5,7 +5,7 @@ class Camara(Model):
 
     def connect():
         Model.set_connection_resolver(db)
-    __table__ = 'camara'
+    __table__ = 'camaras'
     
     def getall(): 
         return Camara.all().serialize()

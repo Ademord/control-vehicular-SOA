@@ -3,14 +3,14 @@ from flask import Flask, jsonify, abort, make_response, request
 from app import Matricula
 app = Flask(__name__)
 
-@app.route('/matriculas', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     temp = Matricula.getall()
     resultado = {}
     resultado['matriculas'] = temp
     return jsonify(resultado)
 
-@app.route('/matriculas/<int:id>', methods=['GET'])
+@app.route('/<int:id>', methods=['GET'])
 def show(id):
     temp = Matricula.get(id)
     if not temp: abort(404)
@@ -18,7 +18,7 @@ def show(id):
     resultado['matricula'] = temp
     return jsonify(resultado)
 
-@app.route('/matriculas', methods=['POST'])
+@app.route('/', methods=['POST'])
 def store():
     data = request.get_json()
     if not request.json or not Matricula.valid(data):
@@ -26,7 +26,7 @@ def store():
     result = Matricula.add(data)
     return jsonify({'result': result}), 201
 
-@app.route('/matriculas/<int:id>', methods=['PUT'])
+@app.route('/<int:id>', methods=['PUT'])
 def update(id):
     temp = Matricula.get(id)
     data = request.get_json()
@@ -35,7 +35,7 @@ def update(id):
     result = Matricula.update(id, data)
     return jsonify({'result': result }), 201
 
-@app.route('/matriculas/<int:id>', methods=['DELETE'])
+@app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):
     temp = Matricula.get(id)
     if not temp: abort(404)

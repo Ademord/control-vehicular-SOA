@@ -3,14 +3,14 @@ from flask import Flask, jsonify, abort, make_response, request
 from app import Lugar
 app = Flask(__name__)
 
-@app.route('/lugares', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     temp = Lugar.getall()
     resultado = {}
     resultado['lugares'] = temp
     return jsonify(resultado)
 
-@app.route('/lugares/<int:id>', methods=['GET'])
+@app.route('/<int:id>', methods=['GET'])
 def show(id):
     temp = Lugar.get(id)
     if not temp: abort(404)
@@ -18,7 +18,7 @@ def show(id):
     resultado['lugar'] = temp
     return jsonify(resultado)
 
-@app.route('/lugares', methods=['POST'])
+@app.route('', methods=['POST'])
 def store():
     data = request.get_json()
     if not request.json or not Lugar.valid(data):
@@ -26,7 +26,7 @@ def store():
     result = Lugar.add(data)
     return jsonify({'result': result}), 201
 
-@app.route('/lugares/<int:id>', methods=['PUT'])
+@app.route('/<int:id>', methods=['PUT'])
 def update(id):
     temp = Lugar.get(id)
     data = request.get_json()
@@ -35,7 +35,7 @@ def update(id):
     result = Lugar.update(id, data)
     return jsonify({'result': result }), 201
 
-@app.route('/lugares/<int:id>', methods=['DELETE'])
+@app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):
     temp = Lugar.get(id)
     if not temp: abort(404)

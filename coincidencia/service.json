@@ -2,11 +2,11 @@
    "kind":"Service",
    "apiVersion":"v1",
    "metadata":{  
-      "name":"propietarios",
+      "name":"coincidencias",
       "namespace":"panchito",
       "creationTimestamp":null,
       "labels":{  
-         "service":"propietarios"
+         "service":"coincidencias"
       }
    },
    "spec":{  
@@ -19,7 +19,7 @@
          }
       ],
       "selector":{  
-         "service":"propietarios"
+         "service":"coincidencias"
       },
       "type":"LoadBalancer"
    },

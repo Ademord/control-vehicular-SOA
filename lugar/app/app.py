@@ -5,7 +5,7 @@ class Lugar(Model):
 
     def connect():
         Model.set_connection_resolver(db)
-    __table__ = 'lugar'
+    __table__ = 'lugares'
     
     def getall(): 
         return Lugar.all().serialize()
