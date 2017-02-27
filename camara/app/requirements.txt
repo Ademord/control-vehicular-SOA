@@ -1,3 +1,4 @@
 flask
 orator
 psycopg2
+requests

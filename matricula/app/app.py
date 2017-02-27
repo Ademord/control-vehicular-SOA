@@ -21,6 +21,9 @@ class Matricula(Model):
         except:
             return abort(404)
 
+    def getPropietario(id):
+        return Matricula.where('propietario_id', '=', '{}'.format(id)).get().serialize();
+
     def buscar(param):
         try:
             return Matricula.where('numero', 'like', '%{}%'.format(param)).get().serialize();

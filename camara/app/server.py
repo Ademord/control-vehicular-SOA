@@ -20,7 +20,7 @@ def store():
     data = request.get_json()
     if not request.json or not Camara.valid(data):
         abort(400)
-    return jsonify(Camara.add(data)), 201
+    return Camara.add(data)
 
 @app.route('/<int:id>', methods=['PUT'])
 def update(id):
@@ -28,13 +28,13 @@ def update(id):
     data = request.get_json()
     if not temp or not data or not Camara.valid(data):
         abort(404)
-    return jsonify(Camara.update(id, data)), 201
+    return Camara.update(id, data)
 
 @app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):
     temp = Camara.get(id)
     if not temp: abort(404)
-    return jsonify(Camara.remove(id)), 201
+    return Camara.remove(id)
 
 @app.errorhandler(404)
 def not_found(error):

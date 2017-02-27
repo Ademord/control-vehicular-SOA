@@ -1,18 +1,13 @@
 from orator import Model
 from database import db
-from flask import abort
+from flask import abort, jsonify
 #orator.orm.collection.Collection object at 0x000001AA82700978
 class Camara(Model):
-
-    # def __init__(self):
-    #     self.ip = ""
-    #     self.lugar_id = ""
-    #     self.estado = False
-    #     self.recolector = ""
+    
+    __table__ = 'camaras'
 
     def connect():
         Model.set_connection_resolver(db)
-    __table__ = 'camaras'
     
     def getall(): 
         try:
@@ -34,35 +29,36 @@ class Camara(Model):
 
     def add(temp):
         camara = Camara()
-        camara.ip = temp['ip']
-        camara.lugar_id = temp['lugar_id']
-        camara.estado = temp['estado']
-        camara.recolector = temp['recolector']
-        camara.save() #salta id cuando no puede agregar; falta validar requests
-        return 200
+        try:
+            camara.ip = temp['ip']
+            camara.lugar_id = temp['lugar_id']
+            camara.estado = False
+            camara.recolector = ""
+            camara.save() #salta id cuando no puede agregar; falta validar requests
+            return jsonify({'result': "Elemento agregado"}), 200
+        except:
+            return jsonify({'result': "No se pudo agregar elemento."}), 500
 
     def remove(id):
         try:
             Camara.find(id).delete()
-            return 200
+            return jsonify({'result': "Elemento eliminado"}), 200
         except:
-            return "No se pudo eliminar elemento."
+            return jsonify({'result': "No se pudo agregar elemento."}), 500
 
     def update(id, temp):
         camara = Camara.find(id)
         try:
             camara.ip = temp['ip']
             camara.lugar_id = temp['lugar_id']
-            camara.estado = temp['estado']
-            camara.recolector = temp['recolector']
+            camara.estado = False
+            camara.recolector = ""
             camara.save()
-            return 200
+            return jsonify({'result': "Elemento actualizado"}), 200
         except:
-            return "No se pudo actualizar elemento."
+            return jsonify({'result': "No se pudo agregar elemento."}), 500
 
     def valid(temp):
         if 'ip' in temp and not isinstance(temp['ip'], str):
             return False
-        # if 'lugar_id' in temp and not isinstance(temp['lugar_id'], str):
-        #     return False
         return True

@@ -1,4 +1,4 @@
-FROM tsutomu7/python-opencv
+FROM miiha/python-opencv-ffmpeg
 
 USER root
 RUN mkdir -p /usr/src/app

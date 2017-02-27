@@ -1,0 +1,113 @@
+select count(*) as cantidad,
+  EXTRACT(year from created_at) AS year,
+  EXTRACT(month from created_at) AS month,
+  EXTRACT(day from created_at) as day
+    from coincidencias
+      group by year, month, day, trunc(EXTRACT(hour from created_at) / 6);
+
+
+SELECT s.hour::int, coalesce(t.cantidad, 0) FROM generate_series(0,23) AS 
+s(hour)
+LEFT OUTER JOIN
+(SELECT COUNT(*) AS cantidad, EXTRACT(hour from created_at) AS hour
+    FROM coincidencias WHERE  date_trunc('day', created_at) = '2016-12-02' 
+GROUP BY hour) AS t
+ON s.hour = t.hour;
+
+SELECT s.hour::int, coalesce(t.cantidad, 0) FROM generate_series(0,23) AS 
+s(hour)
+LEFT OUTER JOIN
+(SELECT COUNT(*) AS cantidad, EXTRACT(hour from created_at) AS hour
+    FROM coincidencias GROUP BY hour) AS t
+ON s.hour = t.hour;
+
+SELECT to_char(date_trunc('day', (current_date - offs)), 'YYYY-MM-DD')
+AS date 
+FROM generate_series(0, 30, 1) 
+AS offs;
+
+****************************************************
+**** REPORTE MATRICULAS POR DIA, ULTIMOS 3 DIAS ****
+****************************************************
+SELECT d.date, count(se.id) FROM (
+    select to_char(date_trunc('day', (current_date - offs)), 'YYYY-MM-DD')
+    AS date 
+    FROM generate_series(0, 30, 1) 
+    AS offs
+    ) d 
+LEFT OUTER JOIN coincidencias se 
+ON (d.date=to_char(date_trunc('day', se.created_at), 'YYYY-MM-DD'))  
+GROUP BY d.date
+ORDER BY d.date asc;
+****************************************************
+**** REPORTE MATRICULAS AGRUPANDO POR PROPIETARIO ****
+****************************************************
+SELECT count(*), c.propietario FROM coincidencias as c GROUP BY propietario;
+****************************************************
+****************************************************
+
+****************************************************
+**** REPORTE MATRICULAS DONDE PROPIETARIO = DESCONOCIDO ****
+****************************************************
+SELECT * FROM coincidencias as c WHERE c.propietario = 'Desconocido';
+SELECT * FROM coincidencias as c WHERE c.propietario != 'Desconocido';
+****************************************************
+****************************************************
+SELECT count(*) FROM coincidencias as c WHERE c.propietario = 'Desconocido';
+SELECT count(*) FROM coincidencias as c WHERE c.propietario != 'Desconocido';
+
+**********************************************************************************************
+**** REPORTE CANTIDAD DE MATRICULAS DE PROPIETARIOS POR DIA **********************************
+**********************************************************************************************
+SELECT d.date, count(se.id) FROM (
+    select to_char(date_trunc('day', (current_date - offs)), 'YYYY-MM-DD')
+    AS date 
+    FROM generate_series(0, 30, 1) 
+    AS offs
+    ) d 
+LEFT OUTER JOIN (SELECT * FROM coincidencias as c WHERE c.propietario != 'Desconocido') se 
+ON (d.date=to_char(date_trunc('day', se.created_at), 'YYYY-MM-DD'))  
+GROUP BY d.date
+ORDER BY d.date asc;
+**********************************************************************************************
+**********************************************************************************************
+
+**********************************************************************************************
+**** REPORTE CANTIDAD DE MATRICULAS DE DESCONOCIDOS POR DIA **********************************
+**********************************************************************************************
+SELECT d.date, count(se.id) FROM (
+    select to_char(date_trunc('day', (current_date - offs)), 'YYYY-MM-DD')
+    AS date 
+    FROM generate_series(0, 30, 1) 
+    AS offs
+    ) d 
+LEFT OUTER JOIN (SELECT * FROM coincidencias as c WHERE c.propietario = 'Desconocido') se 
+ON (d.date=to_char(date_trunc('day', se.created_at), 'YYYY-MM-DD'))  
+GROUP BY d.date
+ORDER BY d.date asc;
+************************************************************************************************
+************************************************************************************************
+
+SELECT lugar, count(*) FROM coincidencias GROUP BY lugar;
+************************************************************************************************
+**** REPORTE CANTIDAD DE MATRICULAS DE DESCONOCIDOS POR LUGAR **********************************
+************************************************************************************************
+SELECT l.nombre, coalesce(count(c.id),0) 
+FROM (SELECT DISTINCT lugar as nombre FROM coincidencias) l
+LEFT OUTER JOIN (
+SELECT * FROM coincidencias WHERE propietario = 'Desconocido' ) c 
+ON l.nombre = c.lugar GROUP BY l.nombre;
+************************************************************************************************
+************************************************************************************************
+
+************************************************************************************************
+**** REPORTE CANTIDAD DE MATRICULAS DE PROPIETARIOS POR LUGAR **********************************
+************************************************************************************************
+SELECT l.nombre, coalesce(count(c.id),0) 
+FROM (SELECT DISTINCT lugar as nombre FROM coincidencias) l
+LEFT OUTER JOIN (
+SELECT * FROM coincidencias WHERE propietario != 'Desconocido' ) c 
+ON l.nombre = c.lugar GROUP BY l.nombre;
+************************************************************************************************
+************************************************************************************************
+

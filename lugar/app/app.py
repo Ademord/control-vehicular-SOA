@@ -1,6 +1,6 @@
 from orator import Model
 from database import db
-from flask import abort
+from flask import abort, jsonify
 
 #orator.orm.collection.Collection object at 0x000001AA82700978
 class Lugar(Model):
@@ -10,10 +10,7 @@ class Lugar(Model):
     __table__ = 'lugares'
     
     def getall(): 
-        try:
             return Lugar.all().serialize()
-        except:
-            return abort(404)
 
     def get(id):
         try:
@@ -32,26 +29,25 @@ class Lugar(Model):
         try:
             lugar.nombre = temp['nombre']
             lugar.save() #salta id cuando no puede agregar; falta validar requests
-            return True
+            return jsonify({'result': "Elemento agregado"}), 200
         except:
-            return "No se pudo agregar elemento."
+            return jsonify({'result': "No se pudo agregar elemento."}), 500
 
     def remove(id):
-        lugar = Lugar.find(id)
         try:
-            lugar.delete()
-            return True
+            Lugar.find(id).delete()
+            return jsonify({'result': "Elemento eliminado"}), 200
         except:
-            return "No se pudo eliminar elemento."
+            return jsonify({'result': "No se pudo agregar elemento."}), 500
 
     def update(id, temp):
         lugar = Lugar.find(id)
         try:
             lugar.nombre = temp['nombre']
             lugar.save()
-            return True
+            return jsonify({'result': "Elemento actualizado"}), 200
         except:
-            return "No se pudo actualizar elemento."
+            return jsonify({'result': "No se pudo agregar elemento."}), 500
 
     def valid(temp):
         if 'nombre' in temp and not isinstance(temp['nombre'], str):

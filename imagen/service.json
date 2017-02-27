@@ -1,0 +1,31 @@
+{  
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{  
+      "name":"coincidencias",
+      "namespace":"panchito",
+      "creationTimestamp":null,
+      "labels":{  
+         "service":"coincidencias"
+      }
+   },
+   "spec":{  
+      "ports":[  
+         {  
+            "name":"55555",
+            "protocol":"TCP",
+            "port":80,
+            "targetPort":55555
+         }
+      ],
+      "selector":{  
+         "service":"coincidencias"
+      },
+      "type":"LoadBalancer"
+   },
+   "status":{  
+      "loadBalancer":{  
+
+      }
+   }
+}

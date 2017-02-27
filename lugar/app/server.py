@@ -20,8 +20,7 @@ def store():
     data = request.get_json()
     if not request.json or not Lugar.valid(data):
         abort(400)
-    result = Lugar.add(data)
-    return jsonify({'result': result}), 201
+    return Lugar.add(data)
 
 @app.route('/<int:id>', methods=['PUT'])
 def update(id):
@@ -29,15 +28,13 @@ def update(id):
     data = request.get_json()
     if not temp or not data or not Lugar.valid(data):
         abort(404)
-    result = Lugar.update(id, data)
-    return jsonify({'result': result }), 201
+    return Lugar.update(id, data)
 
 @app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):
     temp = Lugar.get(id)
     if not temp: abort(404)
-    result = Lugar.remove(id)
-    return jsonify({'result': result }), 201
+    return Lugar.remove(id)
 
 @app.errorhandler(404)
 def not_found(error):

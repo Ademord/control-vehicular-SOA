@@ -15,6 +15,11 @@ def show(id):
 def search(q):
     return jsonify(Matricula.buscar(q))
 
+@app.route('/propietario/<int:id>', methods=['GET'])
+def propietario(id):
+     return jsonify(Matricula.getPropietario(id))
+
+
 @app.route('/', methods=['POST'])
 def store():
     data = request.get_json()

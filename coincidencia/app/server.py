@@ -1,6 +1,8 @@
 #!flask/bin/python
-from flask import Flask, jsonify, abort, make_response, request
+from flask import Flask, jsonify, abort, make_response, request, send_from_directory
 from app import Coincidencia
+import os
+
 app = Flask(__name__)
 logs = [{
     "inicial":"init"
@@ -18,12 +20,45 @@ def show(id):
 def search(q):
     return jsonify(Coincidencia.buscar(q))
 
+@app.route('/count/lugar', methods=['GET'])
+def getCountByPlace():
+    return jsonify(Coincidencia.getCountByPlace())
+
+@app.route('/date-count/propietarios', methods=['GET'])
+def getDateCountKnown():
+    return jsonify(Coincidencia.getDateCountKnown())
+
+@app.route('/date-count/desconocidos', methods=['GET'])
+def getDateCountUnknown():
+    return jsonify(Coincidencia.getDateCountUnknown())
+
+@app.route('/count/propietarios', methods=['GET'])
+def getCountKnown():
+    return jsonify(Coincidencia.getCountKnown())
+
+@app.route('/count/desconocidos', methods=['GET'])
+def getCountUnknown():
+    return jsonify(Coincidencia.getCountUnknown())
+
+@app.route('/count/propietarios/lugar', methods=['GET'])
+def getCountKnownByPlace():
+    return jsonify(Coincidencia.getCountKnownByPlace())
+
+@app.route('/count/desconocidos/lugar', methods=['GET'])
+def getCountUnknownByPlace():
+    return jsonify(Coincidencia.getCountUnknownByPlace())
+
 @app.route('/', methods=['POST'])
 def store():
     data = request.get_json()
     if not request.json or not Coincidencia.valid(data):
         abort(400)
     return jsonify(Coincidencia.add(data)), 201
+
+@app.route('/download/<path:filename>', methods=['GET', 'POST'])
+def download(filename):
+    uploads = os.environ.get('UPLOADS_PATH', '/usr/src/data/')
+    return send_from_directory(directory=uploads, filename=filename)
 
 @app.route('/<int:id>', methods=['DELETE'])
 def destroy(id):

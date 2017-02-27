@@ -24,14 +24,14 @@ logs = [{
 
 @app.route('/reconocer', methods=['POST'])
 def _reconocer():
-	logs.append({'reconocer':'hola'})
+	# logs.append({'reconocer':'hola'})
 	# reconocer = compose(forward, clean, format, process, save)
 	results = forward(clean(format(process(save(request.get_json())))))
 	return jsonify({'logs': logs})
 
 # @app.route('/save', methods=['POST'])
 def save(data):
-	logs.append({'save':'hola'})
+	# logs.append({'save':'hola'})
 	frame = np.array(data['frame'])
 	cv2.imwrite(URL, frame); 
 	#test image is saved
@@ -40,15 +40,18 @@ def save(data):
 
 # @app.route('/process', methods=['GET'])
 def process(data):
-	logs.append({'process':'hola'})
+	# logs.append({'process':'hola'})
 	# open frame with command line
 	# test alpr works, by bashing into container first
 	args = ["alpr", URL, "-c", "bo", "--config", "/usr/src/app/openalpr.conf", "-p","bo", "--clock"]
-	data['output'] = subprocess.Popen(args, stdout=subprocess.PIPE)
-	return data
+	try:
+		data['output'] = subprocess.Popen(args, stdout=subprocess.PIPE)
+		return data
+	except:
+		abort(500)
 
 def format(data):
-	logs.append({'format':'hola'})
+	# logs.append({'format':'hola'})
 	lines = []
 	regex = re.compile(r'[\n\r\t]')
 	for line in io.TextIOWrapper(data['output'].stdout, encoding="utf-8"):
@@ -59,13 +62,19 @@ def format(data):
 		confidence = re.findall ( 'confidence: (.*?) ', line, re.DOTALL)[0]
 		# logs.append({"plate found": line})
 		lines.append({"plate": plate, "confidence": confidence})
-	try:
+	
+	mismatch = True
+	if lines:
 		first_plate = lines[0]
-	except:
-		first_plate = lines
+		data['plate'] = first_plate['plate']
+		data['confidence'] = first_plate['confidence']
+	
+		pattern = re.compile(r"^\d{2,4}[A-Z]{2,3}$",re.I)
+		if pattern.search(data['plate']): 
+			mismatch = False
+	
 	del data['output']
-	data['plate'] = first_plate['plate']
-	data['confidence'] = first_plate['confidence']
+	data['mismatch'] = mismatch
 	return data
 	# return jsonify({'logs': logs[0]})
 
@@ -80,10 +89,12 @@ def clean(data):
 
 def forward(data):
 	url = os.environ.get('TARGET_SERVICE') + "/"
-	logs.append({'forward': 'sent to' + url})
 	headers = {'Content-Type': 'application/json'}
-	r = requests.post(url.strip(), data=json.dumps(data), headers=headers) 
-
+	if not data['mismatch']:
+		logs.append({'forward': 'sent to' + url})
+		r = requests.post(url.strip(), data=json.dumps(data), headers=headers) 
+	# else:
+		# logs.append({'forward': 'NOT sent'})
 	del data['frame']
 	logs.append({'data': data})
 	return data
@@ -91,7 +102,7 @@ def forward(data):
 
 @app.route('/', methods=['GET'])
 def index():
-	logs.append({'hola': 'no he recibido nada'})
+	# logs.append({'hola': 'no he recibido nada'})
 	return jsonify({'logs': logs})
 
 if __name__ == '__main__':

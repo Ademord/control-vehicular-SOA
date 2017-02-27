@@ -9,6 +9,8 @@ import json
 import os
 from datetime import datetime
 
+import subprocess
+
 app = Flask(__name__)
 
 config ={
@@ -18,6 +20,7 @@ config ={
 @app.route('/', methods=['GET'])
 def status():
     return jsonify(config)
+
 @app.route('/<string:ip>', methods=['POST'])
 def set_ip(ip):
     config['ip'] = ip
@@ -30,13 +33,18 @@ def send(data):
     headers = {'Content-Type': 'application/json'}
     r = requests.post(url.strip(), data=json.dumps(data), headers=headers)
     return jsonify({'result': 'sent to ' + url}), 201
-# <string:URI>
 
-@app.route('/read', methods=['GET'])
-def read():
+@app.route('/image', methods=['GET'])
+def readImage():
     img = cv2.imread('image.jpg', 0)
     return send({'ip': config['ip'], 'frame': img.tolist()})
 
+@app.route('/video', methods=['GET'])
+def readVideo():
+    args = ['python', 'app.py', '&']
+    subprocess.Popen(args, stdout=subprocess.PIPE)
+    return jsonify({'result': 'process started'}), 201
+    
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
