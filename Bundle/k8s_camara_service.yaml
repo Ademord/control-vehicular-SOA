@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: camaras
+  namespace: panchito
+  creationTimestamp: 
+  labels:
+    service: camaras
+spec:
+  ports:
+  - name: '55551'
+    protocol: TCP
+    port: 80
+    targetPort: 55551
+  selector:
+    service: camaras
+status:
+  loadBalancer: {}

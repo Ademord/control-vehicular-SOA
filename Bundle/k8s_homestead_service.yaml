@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: homestead
+  namespace: panchito
+  creationTimestamp: 
+  labels:
+    service: homestead
+spec:
+  ports:
+  - name: '5432'
+    protocol: TCP
+    port: 5432
+    targetPort: 5432
+  selector:
+    service: homestead
+status:
+  loadBalancer: {}

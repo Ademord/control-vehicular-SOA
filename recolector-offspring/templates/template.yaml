@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    name: recolector
+  name: recolector
+spec:
+  containers:
+    - image: "ademord/recolector"
+      name: recolector
+      env:
+      - name: VIDEO_NAME
+        value: "video1.avi"
+      - name: IP
+        value: {{ .Values.IP }}
+      - name: TARGET_SERVICE
+        value: http://reconocedor
+      ports: 
+      - containerPort: 55551
+        protocol: TCP
+      resources: {}
+  restartPolicy: Never

@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: propietarios
+  namespace: panchito
+  creationTimestamp: 
+  labels:
+    service: propietarios
+spec:
+  ports:
+  - name: '55555'
+    protocol: TCP
+    port: 80
+    targetPort: 55555
+  selector:
+    service: propietarios
+status:
+  loadBalancer: {}

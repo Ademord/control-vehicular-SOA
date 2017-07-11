@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: lugares
+  namespace: panchito
+  creationTimestamp: 
+  labels:
+    service: lugares
+spec:
+  ports:
+  - name: '55550'
+    protocol: TCP
+    port: 80
+    targetPort: 55550
+  selector:
+    service: lugares
+status:
+  loadBalancer: {}

@@ -1,6 +1,0 @@
-flask
-orator
-psycopg2
-numpy
-argparse
-requests

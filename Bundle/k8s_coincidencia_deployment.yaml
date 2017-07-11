@@ -1,0 +1,30 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: coincidencias
+  namespace: panchito
+  creationTimestamp: 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      creationTimestamp: 
+      labels:
+        service: coincidencias
+    spec:
+      containers:
+      - name: coincidencias
+        image: ademord/coincidencia:latest
+        ports:
+        - containerPort: 55555
+          protocol: TCP
+        env:
+        - name: DATABASE_HOST
+          value: homestead
+        - name: DATABASE_PORT
+          value: '5432'
+        resources: {}
+      restartPolicy: Always
+  strategy: {}
+status: {}

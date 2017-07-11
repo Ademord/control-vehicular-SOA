@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    name: recolector
+  name: recolector
+spec:
+  template:
+    metadata:
+      name: recolector
+    spec:
+      containers:
+        - image: "ademord/recolector"
+          name: recolector
+          env:
+          - name: VIDEO_NAME
+            value: "video1.avi"
+          - name: IP
+            value: 123.123.111
+          - name: TARGET_SERVICE
+            value: http://reconocedor
+          ports: 
+          - containerPort: 55551
+            protocol: TCP
+          resources: {}
+      restartPolicy: Never
