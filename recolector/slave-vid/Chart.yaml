@@ -1,0 +1,14 @@
+name: recolector-offspring
+version: 1
+description: Proceso esclavo de reconocimiento ALPR a partir de un video
+keywords:
+- alpr
+- ai
+- cv
+- application
+- python
+sources:
+- https://github.com/Ademord/control-vehicular-SOA
+maintainers:
+- name: ademord
+  email: support@ademord.com

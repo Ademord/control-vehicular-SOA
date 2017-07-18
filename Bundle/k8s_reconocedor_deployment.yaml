@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   creationTimestamp: null
   name: reconocedor
-  namespace: panchito
+  namespace: default
 spec: 
   replicas: 1
   strategy: {}
@@ -14,7 +14,7 @@ spec:
         service: reconocedor
     spec: 
       containers: 
-        - image: "ademord/reconocedor:latest"
+        - image: "ademord/reconocedor"
           name: reconocedor
           ports: 
             - containerPort: 5000

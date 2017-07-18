@@ -5,10 +5,9 @@ RUN mkdir -p /usr/src/data
 WORKDIR /usr/src/app
 
 COPY requirements.txt /usr/src/app/
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . /usr/src/app
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
+COPY . /usr/src/app
 ENV UPLOADS_PATH /usr/src/data/
 ENV DATABASE_HOST=homestead
 ENV DATABASE_NAME=homestead

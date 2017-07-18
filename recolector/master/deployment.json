@@ -1,0 +1,44 @@
+{  
+   "kind":"Deployment",
+   "apiVersion":"extensions/v1beta1",
+   "metadata":{  
+      "name":"recolector",
+      "namespace":"panchito",
+      "creationTimestamp":null
+   },
+   "spec":{  
+      "replicas":1,
+      "template":{  
+         "metadata":{  
+            "creationTimestamp":null,
+            "labels":{  
+               "service":"recolector"
+            }
+         },
+         "spec":{  
+            "containers":[  
+               {  
+                  "name":"recolector",
+                  "image":"ademord/recolector:latest",
+                  "ports":[  
+                     {  
+                        "containerPort":55551,
+                        "protocol":"TCP"
+                     }
+                  ],
+                  "resources":{  
+
+                  }
+               }
+            ],
+            "restartPolicy":"Always"
+         }
+      },
+      "strategy":{  
+
+      }
+   },
+   "status":{  
+
+   }
+}

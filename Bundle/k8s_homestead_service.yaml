@@ -3,7 +3,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: homestead
-  namespace: panchito
+  namespace: default
   creationTimestamp: 
   labels:
     service: homestead

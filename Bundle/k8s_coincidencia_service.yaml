@@ -3,7 +3,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: coincidencias
-  namespace: panchito
+  namespace: default
   creationTimestamp: 
   labels:
     service: coincidencias

@@ -1,21 +1,14 @@
 #!flask/bin/python
 from flask import Flask, abort, jsonify, request
-from subprocess import check_output
 import subprocess
 app = Flask(__name__)
 import numpy as np
-import sys
-import io
 import re
 import cv2
 import os
 import requests
 import json
-import functools
-
-
-def compose(*functions):
-	return functools.reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
+import io
 
 URL = "/usr/src/app/image.jpg"
 logs = [{
@@ -25,8 +18,7 @@ logs = [{
 @app.route('/reconocer', methods=['POST'])
 def _reconocer():
 	logs.append({'reconocer':'hola'})
-	# reconocer = compose(forward, clean, format, process, save)
-	# results = forward(clean(format(process(save(request.get_json())))))
+	results = forward(clean(format(process(save(request.get_json())))))
 	return jsonify({'logs': logs})
 
 # @app.route('/save', methods=['POST'])
