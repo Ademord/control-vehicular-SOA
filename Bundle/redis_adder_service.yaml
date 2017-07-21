@@ -2,19 +2,19 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: recolector
+  name: redis-adder
   namespace: default
   creationTimestamp: 
   labels:
-    service: recolector
+    service: redis-adder
 spec:
   ports:
-  - name: '55551'
+  - name: '55555'
     protocol: TCP
     port: 80
-    targetPort: 55551
+    targetPort: 55555
   selector:
-    service: recolector
-  type: LoadBalancer
+    service: redis-adder
+  type: NodePort
 status:
   loadBalancer: {}
