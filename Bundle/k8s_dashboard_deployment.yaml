@@ -4,18 +4,16 @@ apiVersion: extensions/v1beta1
 metadata:
   name: alpr-dashboard
   namespace: default
-  creationTimestamp: 
 spec:
   replicas: 1
   template:
     metadata:
-      creationTimestamp: 
       labels:
         service: alpr-dashboard
     spec:
       containers:
       - name: alpr-dashboard
-        image: ademord/alpr-dashboard:latest
+        image: ademord/alpr-dashboard
         ports:
         - containerPort: 80
           protocol: TCP
@@ -24,7 +22,10 @@ spec:
           value: homestead
         - name: DATABASE_PORT
           value: '5432'
-        resources: {}
-      restartPolicy: Always
-  strategy: {}
-status: {}
+        volumeMounts:
+        - mountPath: "/var/www/laravel/storage/media"
+          name: media
+      volumes:
+      - name: media
+        hostPath:
+          path: "/share"

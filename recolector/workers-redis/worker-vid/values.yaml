@@ -1,0 +1,11 @@
+## Recolector-IMG image version
+## ref: https://hub.docker.com/r/ademord/
+##
+image: ademord/recolector-vid:latest
+
+## Environment variables
+##
+env:
+  VIDEO_NAME: video1.avi
+  IP: 123.123.111
+  TARGET_SERVICE: http://reconocedor

@@ -20,6 +20,12 @@ def show(id):
 def search(q):
     return jsonify(Coincidencia.buscar(q))
 
+@app.route('/query', methods=['POST'])
+def raw():
+    q = request.get_json()
+    Coincidencia.raw(q['query'])
+    return "Added", 200
+
 @app.route('/count/lugar', methods=['GET'])
 def getCountByPlace():
     return jsonify(Coincidencia.getCountByPlace())

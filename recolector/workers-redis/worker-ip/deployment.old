@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  creationTimestamp: null
+  name: recolector
+  namespace: panchito
+spec: 
+  replicas: 1
+  strategy: {}
+  template: 
+    metadata: 
+      creationTimestamp: null
+      labels: 
+        service: recolector
+    spec: 
+      containers: 
+      - image: "ademord/recolector"
+        name: recolector
+        env:
+        - name: VIDEO_NAME
+          value: "video1.avi"
+        - name: IP
+          value: 123.123.111
+        - name: TARGET_SERVICE
+          value: http://reconocedor
+        ports: 
+        - containerPort: 55551
+          protocol: TCP
+        resources: {}
+      restartPolicy: Always
+status: {}

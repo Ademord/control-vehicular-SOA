@@ -1,0 +1,20 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: gcr.io/google_containers/echoserver:1.4
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      volumeMounts:
+      - mountPath: "/media"
+        name: media
+  volumes:
+    - name: media
+      hostPath:
+        path: "/share"
+

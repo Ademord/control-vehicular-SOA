@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    name: recolector
+  name: recolector
+spec:
+  containers:
+    - image: ademord/recolector
+      name: recolector
+      env:
+      - name: TARGET_SERVICE
+        value: http://reconocedor
+      ports:
+        - containerPort: 55551
+          protocol: TCP
+      volumeMounts:
+      - mountPath: "/media"
+        name: media
+  volumes:
+  - name: media
+    hostPath:
+      path: "/share"

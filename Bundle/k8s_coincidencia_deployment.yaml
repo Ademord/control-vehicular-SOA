@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: coincidencias
-        image: ademord/coincidencia:latest
+        image: ademord/coincidencia
         ports:
         - containerPort: 55555
           protocol: TCP
@@ -24,7 +24,10 @@ spec:
           value: homestead
         - name: DATABASE_PORT
           value: '5432'
-        resources: {}
-      restartPolicy: Always
-  strategy: {}
-status: {}
+        volumeMounts:
+        - mountPath: "/media"
+          name: media
+      volumes:
+      - name: media
+        hostPath:
+          path: "/share"

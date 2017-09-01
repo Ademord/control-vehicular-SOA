@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+    labels:
+        name: {{ .Chart.Name }}
+    name: {{ .Chart.Name }}
+spec:
+    template:
+        metadata:
+            name: recolector
+        spec:
+            containers:
+            -  
+                image: {{ .Values.image }}
+                name: {{ .Chart.Name }}
+                env:
+                - 
+                    name: VIDEO_NAME
+                    value:  {{ .Values.env.VIDEO_NAME }}
+                - 
+                    name: IP
+                    value: {{ .Values.env.IP }}
+                - 
+                    name: TARGET_SERVICE
+                    value: {{ .Values.env.TARGET_SERVICE }}
+                ports: 
+                - 
+                    containerPort: 55551
+            restartPolicy: Never
