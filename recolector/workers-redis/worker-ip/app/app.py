@@ -43,9 +43,11 @@ class RecolectorIP():
         for retry_n in range(20):
             try:
                 self.redis_client = Redis(host=self.redis_endpoint, port=self.redis_port)
+                self.redis_client.delete('test_conn')
                 logging.info('Connected to Redis!')
             except:
-                logging.info('Failed to connect to Redis. Retrying to connect in 15 seconds...')
+                logging.warning(
+                    'Failed to connect to Redis. Retrying to connect in {} seconds...'.format(Fibo(retry_n)))
                 time.sleep(Fibo(retry_n))
                 continue
             break
@@ -95,6 +97,7 @@ def main():
     IP = os.environ.get('TARGET', '190.186.38.110')
     # DAHUA
     # camera_endpoint = "rtsp://admin:admin@{0}:554/cam/realmonitor?channel=1&subtype={1}&unicast=true&proto=Onvif".format(IP, subtype)
+    camera_endpoint = "rtsp://admin:admin@190.186.38.110:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif".format(IP, subtype)
     # VIVOTEK
 
     camera_endpoint = "rtsp://{0}:554/live.sdp:".format(IP)

@@ -113,7 +113,9 @@ class Coincidencia(Model):
             lugar = Coincidencia.get_external('http://lugares/{}'.format(lugar_id))
             coincidencia.lugar = lugar['nombre']
         else:
-            coincidencia.lugar = coincidencia.camara # 'unset'
+            coincidencia.lugar = 'EntradaVirtual'
+            coincidencia.camara = 'IPVirtual'
+
 
         # MATRICULA
         coincidencia.matricula = data['plate']

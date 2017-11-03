@@ -4,8 +4,8 @@ import json
 def publishInRedis(data):
 
     config = {
-        'host': 'redis-15196.c1.eu-west-1-3.ec2.cloud.redislabs.com',
-        'port': 15196,
+        'host': 'redis',
+        'port': 6379,
         'db': 0,
     }
 

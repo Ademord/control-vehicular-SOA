@@ -1,98 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/reconocedor/app/worker.py" line="146" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/reconocedor/app/worker.py" line="149" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cab7cb7-a7a0-498f-905f-2c33d1dabec5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recolector/listener/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recolector/listener/app/data/k8s_recolector.yaml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recolector/listener/app/rediswq.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recolector/listener/app/requirements.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bundle/redis-pod.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bundle/redis-service.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bundle/redis_adder_deployment.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bundle/redis_adder_service.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/base/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/base/requirements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/deployment.old" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/job.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/.idea/recolector-master.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/app/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/app/image.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/app/requirements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/app/server-new.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/app/server.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/deployment.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/redeploy.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/v1/service.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/worker/app/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/worker/app/rediswq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/worker/app/worker.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/worker/job.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/master/worker/worker.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/redeploy.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/franco1.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/franco2.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/franco3.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/image9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/matricula.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/prueba1.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/prueba3.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/suarez1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/suarez2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/suarez3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/save/suarez4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/Chart.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/app/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/app/app.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/app/image.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/app/requirements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/templates/template.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-img/values.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-vid/Chart.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-vid/app/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-vid/app/app.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-vid/templates/template.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/slave-vid/values.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recolector/video1.avi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reconocedor/app/server.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reconocedor/deployment.old" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reconocedor/redeploy.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reconocedor/service.old" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/adder/app/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/adder/app/adder.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/adder/app/requirements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/adder/deployment.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/adder/service.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/redis-template/redis-pod.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/redis-template/redis-service.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/worker/app/Dockerfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/worker/app/rediswq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/worker/app/worker.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/worker/job.yaml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/redis-wq/worker/worker.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bundle/k8s_coincidencia_deployment.yaml" afterPath="$PROJECT_DIR$/Bundle/k8s_coincidencia_deployment.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bundle/k8s_dashboard_deployment.yaml" afterPath="$PROJECT_DIR$/Bundle/k8s_dashboard_deployment.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coincidencias/app/app.py" afterPath="$PROJECT_DIR$/coincidencias/app/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coincidencias/app/server.py" afterPath="$PROJECT_DIR$/coincidencias/app/server.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homestead/db" afterPath="$PROJECT_DIR$/homestead/db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reconocedor/app/Dockerfile" afterPath="$PROJECT_DIR$/reconocedor/app/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reconocedor/app/requirements.txt" afterPath="$PROJECT_DIR$/reconocedor/app/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reconocedor/base/Dockerfile" afterPath="$PROJECT_DIR$/reconocedor/base/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coincidencias/app/publisher.py" afterPath="$PROJECT_DIR$/coincidencias/app/publisher.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recolector/listener/app/listener.py" afterPath="$PROJECT_DIR$/recolector/listener/app/listener.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/app.py" afterPath="$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reconocedor/app/worker.py" afterPath="$PROJECT_DIR$/reconocedor/app/worker.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,8 +31,8 @@
       <file leaf-file-name="worker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reconocedor/app/worker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
-              <caret line="132" column="28" lean-forward="false" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="28" />
+            <state relative-caret-position="2877">
+              <caret line="150" column="25" lean-forward="false" selection-start-line="150" selection-start-column="25" selection-end-line="150" selection-end-column="25" />
               <folding>
                 <element signature="e#22#36#0" expanded="true" />
               </folding>
@@ -122,11 +40,67 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="listener.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/recolector/listener/app/listener.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1995">
+              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coincidencias/app/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3003">
+              <caret line="155" column="18" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+              <folding>
+                <marker date="1504357867925" expanded="true" signature="1113:1169" ph="SELECT lugar... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="1237:1518" ph="SELECT l.nom... lugar" />
+                <marker date="1504357867925" expanded="true" signature="1298:1348" ph="SELECT DISTI... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="1398:1460" ph="SELECT * FRO... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="1588:1868" ph="SELECT l.nom... lugar" />
+                <marker date="1504357867925" expanded="true" signature="1649:1699" ph="SELECT DISTI... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="1749:1810" ph="SELECT * FRO... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="1929:2004" ph="SELECT count... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="2067:2143" ph="SELECT count... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="2210:2688" ph="SELECT d.dat... to_char" />
+                <marker date="1504357867925" expanded="true" signature="2259:2418" ph="select to_ch... " />
+                <marker date="1504357867925" expanded="true" signature="2468:2537" ph="SELECT * FRO... coincidencias" />
+                <marker date="1504357867925" expanded="true" signature="2750:3227" ph="SELECT d.dat... to_char" />
+                <marker date="1504357867925" expanded="true" signature="2799:2958" ph="select to_ch... " />
+                <marker date="1504357867925" expanded="true" signature="3008:3076" ph="SELECT * FRO... coincidencias" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="publisher.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coincidencias/app/publisher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="1" column="11" lean-forward="true" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coincidencias/app/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="68" column="54" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="54" />
+            <state relative-caret-position="637">
+              <caret line="107" column="47" lean-forward="true" selection-start-line="107" selection-start-column="47" selection-end-line="107" selection-end-column="47" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -135,10 +109,20 @@
         </entry>
       </file>
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-vid/app/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-img/app/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -155,8 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app</find>
-      <find>numpy</find>
       <find>$USER_HOME$/.minikube/</find>
       <find>time</find>
       <find>frame</find>
@@ -175,7 +157,6 @@
       <find>decode</find>
       <find>encode</find>
       <find>utf</find>
-      <find>redis</find>
       <find>mimetype</find>
       <find>recolectorcreator</find>
       <find>&quot;</find>
@@ -185,6 +166,9 @@
       <find>EP</find>
       <find>uuid</find>
       <find>NP.</find>
+      <find>self.q</find>
+      <find>bind_redis</find>
+      <find>redis</find>
     </findStrings>
     <replaceStrings>
       <replace>/app/data/</replace>
@@ -241,15 +225,16 @@
         <option value="$PROJECT_DIR$/reconocedor/app/app.py" />
         <option value="$PROJECT_DIR$/../ZHAW/Optimal Package Transfer/bittorrent/container-based-transmission/peer/app.py" />
         <option value="$PROJECT_DIR$/Bundle/k8s_coincidencia_deployment.yaml" />
-        <option value="$PROJECT_DIR$/coincidencias/app/app.py" />
         <option value="$PROJECT_DIR$/Bundle/k8s_recolector-listener.yaml" />
-        <option value="$PROJECT_DIR$/recolector/listener/app/listener.py" />
         <option value="$PROJECT_DIR$/Bundle/k8s_dashboard_deployment.yaml" />
         <option value="$PROJECT_DIR$/recolector/workers-redis/worker-img/app/Dockerfile" />
         <option value="$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/Dockerfile" />
         <option value="$PROJECT_DIR$/reconocedor/app/Dockerfile" />
         <option value="$PROJECT_DIR$/recolector/workers-redis/worker-img/app/app.py" />
+        <option value="$PROJECT_DIR$/coincidencias/app/app.py" />
         <option value="$PROJECT_DIR$/reconocedor/app/worker.py" />
+        <option value="$PROJECT_DIR$/recolector/listener/app/listener.py" />
+        <option value="$PROJECT_DIR$/coincidencias/app/publisher.py" />
         <option value="$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/app.py" />
       </list>
     </option>
@@ -261,10 +246,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2008" />
-    <option name="y" value="256" />
-    <option name="width" value="1717" />
-    <option name="height" value="955" />
+    <option name="y" value="29" />
+    <option name="width" value="1920" />
+    <option name="height" value="1051" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -292,6 +276,17 @@
             <path>
               <item name="alpr-soa" type="b2602c69:ProjectViewProjectNode" />
               <item name="alpr-soa" type="462c0819:PsiDirectoryNode" />
+              <item name="coincidencias" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpr-soa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpr-soa" type="462c0819:PsiDirectoryNode" />
+              <item name="coincidencias" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpr-soa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpr-soa" type="462c0819:PsiDirectoryNode" />
               <item name="recolector" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -313,6 +308,17 @@
               <item name="recolector" type="462c0819:PsiDirectoryNode" />
               <item name="workers-redis" type="462c0819:PsiDirectoryNode" />
               <item name="worker-ip" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpr-soa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpr-soa" type="462c0819:PsiDirectoryNode" />
+              <item name="reconocedor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="alpr-soa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alpr-soa" type="462c0819:PsiDirectoryNode" />
+              <item name="reconocedor" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -398,7 +404,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="29" width="1920" height="1051" extended-state="6" />
+    <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -409,7 +415,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31893688" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23878205" sideWeight="0.49612403" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26495728" sideWeight="0.49612403" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39977092" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -566,24 +572,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coincidencias/app/publisher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coincidencias/app/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coincidencias/app/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -605,13 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4053">
           <caret line="193" column="44" lean-forward="false" selection-start-line="193" selection-start-column="44" selection-end-line="193" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-vid/app/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -691,13 +676,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coincidencias/app/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="147" column="35" lean-forward="false" selection-start-line="147" selection-start-column="35" selection-end-line="147" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.6/site-packages/PyQt5/QtWidgets.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -726,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/recolector/listener/app/listener.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -756,26 +727,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-img/app/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="43" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-vid/app/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recolector/listener/app/listener.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1995">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reconocedor/app/worker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="132" column="28" lean-forward="false" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="28" />
+        <state relative-caret-position="2877">
+          <caret line="150" column="25" lean-forward="false" selection-start-line="150" selection-start-column="25" selection-end-line="150" selection-end-column="25" />
           <folding>
             <element signature="e#22#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/coincidencias/app/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3003">
+          <caret line="155" column="18" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding>
+            <marker date="1504357867925" expanded="true" signature="1113:1169" ph="SELECT lugar... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="1237:1518" ph="SELECT l.nom... lugar" />
+            <marker date="1504357867925" expanded="true" signature="1298:1348" ph="SELECT DISTI... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="1398:1460" ph="SELECT * FRO... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="1588:1868" ph="SELECT l.nom... lugar" />
+            <marker date="1504357867925" expanded="true" signature="1649:1699" ph="SELECT DISTI... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="1749:1810" ph="SELECT * FRO... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="1929:2004" ph="SELECT count... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="2067:2143" ph="SELECT count... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="2210:2688" ph="SELECT d.dat... to_char" />
+            <marker date="1504357867925" expanded="true" signature="2259:2418" ph="select to_ch... " />
+            <marker date="1504357867925" expanded="true" signature="2468:2537" ph="SELECT * FRO... coincidencias" />
+            <marker date="1504357867925" expanded="true" signature="2750:3227" ph="SELECT d.dat... to_char" />
+            <marker date="1504357867925" expanded="true" signature="2799:2958" ph="select to_ch... " />
+            <marker date="1504357867925" expanded="true" signature="3008:3076" ph="SELECT * FRO... coincidencias" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coincidencias/app/publisher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="11" lean-forward="true" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coincidencias/app/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/recolector/workers-redis/worker-ip/app/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="68" column="54" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="54" />
+        <state relative-caret-position="637">
+          <caret line="107" column="47" lean-forward="true" selection-start-line="107" selection-start-column="47" selection-end-line="107" selection-end-column="47" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

@@ -107,16 +107,18 @@ class Listener():
         for retry_n in range(20):
             try:
                 self.redis_client = Redis(host=self.redis_endpoint)
-                self.q = rediswq.RedisWQ(name=self.work_queue, host=self.redis_endpoint)
+                self.redis_client.delete('test_conn')
                 logging.info('Connected to Redis!')
             except:
-                logging.info('Failed to connect to Redis. Retrying to connect in 15 seconds...')
+                logging.warning(
+                    'Failed to connect to Redis. Retrying to connect in {} seconds...'.format(Fibo(retry_n)))
                 time.sleep(Fibo(retry_n))
                 continue
             break
         else:
             raise RedisConnectError()
 
+        self.q = rediswq.RedisWQ(name=self.work_queue, host=self.redis_endpoint)
         logging.info('Worker with sessionID: ' + self.q.sessionID())
         logging.info('Initial queue state: empty=' + str(self.q.empty()))
 
